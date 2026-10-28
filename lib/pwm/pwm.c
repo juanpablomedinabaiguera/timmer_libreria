@@ -12,34 +12,34 @@ void pwm_init(uint8_t canal, uint32_t frec){
         switch(canal){
                 case 1:
                         RCC->APB2ENR|=RCC_APB2ENR_IOPAEN;
-                        GPIOA->CRL &=~ (0xF<<(canal)*4);
-                        GPIOA->CRL |= (0xB<<(canal)*4);
+                        GPIOA->CRL &=~ (0xF<<(6)*4);
+                        GPIOA->CRL |= (0xB<<(6)*4);
                         TIM3->CCMR1 &=~ (0b111<<4);
                         TIM3->CCMR1 |= (0b110<<4);
                         TIM3->CCER |= TIM_CCER_CC1E;
                         break;
                 case 2:
                         RCC->APB2ENR|=RCC_APB2ENR_IOPAEN;
-                        GPIOA->CRL &=~ (0xF<<(canal)*4);
-                        GPIOA->CRL |= (0xB<<(canal)*4);
+                        GPIOA->CRL &=~ (0xF<<(7)*4);
+                        GPIOA->CRL |= (0xB<<(7)*4);
                         TIM3->CCMR1 &=~ (0b111<<12);
                         TIM3->CCMR1 |= (0b110<<12);
                         TIM3->CCER |= TIM_CCER_CC2E;
                         break;
                 case 3:
                         RCC->APB2ENR|=RCC_APB2ENR_IOPBEN;
-                        GPIOA->CRL &=~ (0xF<<(canal)*4);
-                        GPIOA->CRL |= (0xB<<(canal)*4);
-                        TIM3->CCMR1 &=~ (0b111<<4);
-                        TIM3->CCMR1 |= (0b110<<4);
+                        GPIOB->CRL &=~ (0xF<<(0)*4);
+                        GPIOB->CRL |= (0xB<<(0)*4);
+                        TIM3->CCMR2 &=~ (0b111<<4);
+                        TIM3->CCMR2 |= (0b110<<4);
                         TIM3->CCER |= TIM_CCER_CC3E;
                         break;
                 case 4:
                         RCC->APB2ENR|=RCC_APB2ENR_IOPBEN;
-                        GPIOA->CRL &=~ (0xF<<(canal)*4);
-                        GPIOA->CRL |= (0xB<<(canal)*4);
-                        TIM3->CCMR1 &=~ (0b111<<12);
-                        TIM3->CCMR1 |= (0b110<<12);
+                        GPIOB->CRL &=~ (0xF<<(1)*4);
+                        GPIOB->CRL |= (0xB<<(1)*4);
+                        TIM3->CCMR2 &=~ (0b111<<12);
+                        TIM3->CCMR2 |= (0b110<<12);
                         TIM3->CCER |= TIM_CCER_CC4E;
                         break;
                 default:

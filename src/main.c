@@ -14,6 +14,5 @@ int main(){
         conversion = adc_read(pote);
         valor = (conversion*100)/4095;
         pwm(1,valor);
-        
     }
 }
